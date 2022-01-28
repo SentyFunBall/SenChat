@@ -50,6 +50,12 @@ end
 ---@param params MinimizerParams    params that the build process usees to control minification settings
 ---@param workspaceRoot Filepath    filepath to the root folder of the project
 function onLBBuildComplete(builder, params, workspaceRoot)
+    vehicle_file = "SenChat.xml"
+    local handle = io.popen("python -m pyStormworksLuaInject " .. vehicle_file .. " " .. arg[3], "r")
+    
+    for line in handle:lines() do
+        print(line)
+    end
     print("Build Success")
     print("See the /out/release/ folder for your minimized code")
 end

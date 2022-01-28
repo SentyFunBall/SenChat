@@ -1,3 +1,6 @@
 _examples_and_tutorials/
 
-out/
+out/_intermediate/
+out/release/
+
+_build/_debug_simulator_log.txt

@@ -4,10 +4,12 @@
 ---@section onLBSimulatorTick
 
 -- Set properties and screen sizes here - will run once when the script is loaded
-simulator:setScreen(1, "3x3")
-simulator:setProperty("ExampleBoolProperty", true)
-simulator:setProperty("ExampleNumberProperty", 123)
-simulator:setProperty("ExampleTextProperty", "Text")
+simulator:setScreen(1, "5x3")
+simulator:setProperty("Server code", 192168431)
+simulator:setProperty("Display Name", "Test")
+simulator:setProperty("Refresh Timer (ticks)", 1500)
+simulator:setProperty("Sweep Speed (ticks)", 4)
+
 
 -- Runs every tick just before onTick; allows you to simulate the inputs changing
 ---@param simulator Simulator Use simulator:<function>() to set inputs etc.
@@ -21,12 +23,9 @@ function onLBSimulatorTick(simulator, ticks)
     -- default touchscreen connection
     screenConnection = simulator:getTouchScreen(1)
     simulator:setInputBool(1, screenConnection.isTouched)
-    simulator:setInputBool(2, screenConnection.isTouchedAlt)
     simulator:setInputNumber(1, screenConnection.width)
     simulator:setInputNumber(2, screenConnection.height)
     simulator:setInputNumber(3, screenConnection.touchX)
     simulator:setInputNumber(4, screenConnection.touchY)
-    simulator:setInputNumber(5, screenConnection.touchAltX)
-    simulator:setInputNumber(6, screenConnection.touchAltY)
 end;
 ---@endsection
