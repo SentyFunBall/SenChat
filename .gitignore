@@ -4,3 +4,4 @@ out/_intermediate/
 out/release/
 
 _build/_debug_simulator_log.txt
+_build/_build.lua
