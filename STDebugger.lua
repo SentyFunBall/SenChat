@@ -60,6 +60,7 @@ function STDebugger.throwScreen(lll, x, y, errorCode, errorText)
         end
     end
 
+    screen.setColor(255,10,10)
     screen.drawText(x,y, tostring(errorCode) .. ": " .. errorText)
 end
 ---@endsection
