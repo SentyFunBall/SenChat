@@ -46,11 +46,6 @@ if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.
 local combinedText, outText, outFile = _builder:buildMicrocontroller([[selfFreq.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\selfFreq.lua]]), params)
 if onLBBuildFileComplete then onLBBuildFileComplete(LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[selfFreq.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\selfFreq.lua]]), outFile, combinedText, outText) end
 
-if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[memory.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\memory.lua]])) end
-
-local combinedText, outText, outFile = _builder:buildMicrocontroller([[memory.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\memory.lua]]), params)
-if onLBBuildFileComplete then onLBBuildFileComplete(LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[memory.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\memory.lua]]), outFile, combinedText, outText) end
-
 if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[colorPicker.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\colorPicker.lua]])) end
 
 local combinedText, outText, outFile = _builder:buildMicrocontroller([[colorPicker.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\colorPicker.lua]]), params)
@@ -60,6 +55,11 @@ if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.
 
 local combinedText, outText, outFile = _builder:buildMicrocontroller([[chatManager.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\chatManager.lua]]), params)
 if onLBBuildFileComplete then onLBBuildFileComplete(LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[chatManager.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\chatManager.lua]]), outFile, combinedText, outText) end
+
+if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[memory.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\memory.lua]])) end
+
+local combinedText, outText, outFile = _builder:buildMicrocontroller([[memory.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\memory.lua]]), params)
+if onLBBuildFileComplete then onLBBuildFileComplete(LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[memory.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\memory.lua]]), outFile, combinedText, outText) end
 
 if onLBBuildComplete then onLBBuildComplete(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]])) end
 --- @diagnostic enable: undefined-global

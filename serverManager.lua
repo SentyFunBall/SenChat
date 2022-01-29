@@ -8,7 +8,7 @@ require("LifeBoatAPI")
 -- color palette, keeping them here makes UI easier to restyle
 color_Highlight = LifeBoatAPI.LBColorRGBA:lbcolorrgba_newGammaCorrected(230, 230, 230)   -- offwhite
 color_Inactive  = LifeBoatAPI.LBColorRGBA:lbcolorrgba_newGammaCorrected(100,100,100)     -- grey
-color_Active    = LifeBoatAPI.LBColorRGBA:lbcolorrgba_newGammaCorrected(230,150,0)   -- orangeRed
+color_Active    = LifeBoatAPI.LBColorRGBA:lbcolorrgba_newGammaCorrected(200,200,200)   -- white
 
 -- define out button
 hostButton = LifeBoatAPI.LBTouchScreen:lbtouchscreen_newStyledButton(85, 13, 58, 9, "Host Server", color_Highlight, color_Inactive, color_Active, color_Highlight,color_Inactive) -- using the TouchScreen functionality from LifeBoatAPI - make a simple button
@@ -22,7 +22,7 @@ function onTick()
     if serverCode == 0 then
         serverCode = '0'
     else
-        serverCode = tostring(serverCode)
+        serverCode = string.format("%.0f", serverCode)
     end
 
     if hostButton:lbstyledbutton_isReleased() and not hosting then
@@ -45,6 +45,7 @@ function onDraw()
     end
     if hosting then
         screen.setColor(255,255,255)
-        screen.drawText(1,screen.getHeight() - 6, "Hosting: " .. serverCode)
+        screen.drawText(1,screen.getHeight() - 6, "Hosting:" .. serverCode)
+        output.setNumber(1, serverCode)
     end
 end

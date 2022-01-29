@@ -5,7 +5,7 @@
 
 -- Set properties and screen sizes here - will run once when the script is loaded
 simulator:setScreen(1, "5x3")
---simulator:setProperty("Server code", 192168431)
+simulator:setProperty("Server code", 1921684)
 simulator:setProperty("Display Name", "Test")
 simulator:setProperty("Refresh Timer (ticks)", 1500)
 simulator:setProperty("Sweep Speed (ticks)", 4)
