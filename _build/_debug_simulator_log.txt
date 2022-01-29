@@ -1,5 +1,5 @@
-1/28/2022 5:26:28 AM Launching, time stamp.
-1/28/2022 5:26:29 AM Opening connection on port 14238
-1/28/2022 5:26:29 AM Now Accepting TCP clients
-1/28/2022 5:26:29 AM MainWindow Initialized and running
-1/28/2022 5:26:29 AM Client accepted - Client Connected: True, beginning Message Loop
+1/29/2022 6:47:27 AM Launching, time stamp.
+1/29/2022 6:47:27 AM Opening connection on port 14238
+1/29/2022 6:47:27 AM Now Accepting TCP clients
+1/29/2022 6:47:27 AM MainWindow Initialized and running
+1/29/2022 6:47:27 AM Client accepted - Client Connected: True, beginning Message Loop
