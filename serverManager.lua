@@ -42,10 +42,14 @@ function onDraw()
         screen.drawText(1,1, "Enter Server Code: ")
         screen.drawText(1,15, "Or start hosting: ")
         hostButton:lbstyledbutton_draw()
+
+        output.setBool(1, false)
+        output.setNumber(1, 0)
     end
     if hosting then
         screen.setColor(255,255,255)
         screen.drawText(1,screen.getHeight() - 6, "Hosting:" .. serverCode)
         output.setNumber(1, serverCode)
+        output.setBool(1, true)
     end
 end
