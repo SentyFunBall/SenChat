@@ -14,6 +14,9 @@ require("LifeBoatAPI")
 ---@param workspaceRoot Filepath    filepath to the root folder of the project
 function onLBBuildStarted(builder, params, workspaceRoot)
     print("Build started - see the build actions in _build/_buildactions.lua")
+
+    --remove the STDebugger parts
+    --TODO: write that part of the code
 end
 
 --- Runs just before each file is built

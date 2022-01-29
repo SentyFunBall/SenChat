@@ -2,7 +2,7 @@
 
 require("_build._simulator_config")
 require("LifeBoatAPI")
-local std = require("STDebugger")
+--local std = require("STDebugger")
 
 --LBs stupid buttons
 -- color palette, keeping them here makes UI easier to restyle
@@ -19,12 +19,18 @@ connected = false
 function onTick()
     LifeBoatAPI.LBTouchScreen:lbtouchscreen_onTick() -- touchscreen handler provided by LifeBoatAPI. Handles checking for clicks/releases etc.
     serverCode = property.getNumber("Server code")
+    if serverCode == 0 then
+        serverCode = '0'
+    else
+        serverCode = tostring(serverCode)
+    end
 
     if hostButton:lbstyledbutton_isReleased() and not hosting then
-        if serverCode ~= 0 then
+        if serverCode ~= '0' then
             hosting = true
         else
-            std:throw(400)
+            --std:throw(400)
+            --TODO: draw error text here
         end
     end
 end
