@@ -12,6 +12,7 @@ color_Active    = LifeBoatAPI.LBColorRGBA:lbcolorrgba_newGammaCorrected(200,200,
 
 -- define out button
 hostButton = LifeBoatAPI.LBTouchScreen:lbtouchscreen_newStyledButton(85, 13, 58, 9, "Host Server", color_Highlight, color_Inactive, color_Active, color_Highlight,color_Inactive) -- using the TouchScreen functionality from LifeBoatAPI - make a simple button
+stopHostingButton = LifeBoatAPI.LBTouchScreen:lbtouchscreen_newStyledButton(79, 89, 58, 6, "Kill Server", color_Highlight, color_Inactive, color_Active, color_Highlight,color_Inactive) -- using the TouchScreen functionality from LifeBoatAPI - make a simple button
 
 hosting = false
 connected = false
@@ -34,6 +35,10 @@ function onTick()
         end
     end
 
+    if stopHostingButton:lbstyledbutton_isReleased() and hosting then
+        hosting = false
+    end
+
     if hosting then
         output.setBool(1, true)
         output.setNumber(1, tonumber(serverCode))
@@ -54,5 +59,6 @@ function onDraw()
     if hosting then
         screen.setColor(255,255,255)
         screen.drawText(1,screen.getHeight() - 6, "Hosting:" .. serverCode)
+        stopHostingButton:lbstyledbutton_draw()
     end
 end
