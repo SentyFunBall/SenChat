@@ -31,15 +31,15 @@ local _builder = LifeBoatAPI.Tools.Builder:new(rootDirs, outputDir, luaDocsMCPat
 
 if onLBBuildStarted then onLBBuildStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]])) end
 
-if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[STDebugger.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\STDebugger.lua]])) end
-
-local combinedText, outText, outFile = _builder:buildMicrocontroller([[STDebugger.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\STDebugger.lua]]), params)
-if onLBBuildFileComplete then onLBBuildFileComplete(LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[STDebugger.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\STDebugger.lua]]), outFile, combinedText, outText) end
-
 if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[serverManager.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\serverManager.lua]])) end
 
 local combinedText, outText, outFile = _builder:buildMicrocontroller([[serverManager.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\serverManager.lua]]), params)
 if onLBBuildFileComplete then onLBBuildFileComplete(LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[serverManager.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\serverManager.lua]]), outFile, combinedText, outText) end
+
+if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[STDebugger.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\STDebugger.lua]])) end
+
+local combinedText, outText, outFile = _builder:buildMicrocontroller([[STDebugger.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\STDebugger.lua]]), params)
+if onLBBuildFileComplete then onLBBuildFileComplete(LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[STDebugger.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\STDebugger.lua]]), outFile, combinedText, outText) end
 
 if onLBBuildFileStarted then onLBBuildFileStarted(_builder, params, LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat]]), [[selfFreq.lua]], LifeBoatAPI.Tools.Filepath:new([[d:\ggg\Stormworks\SenChat\selfFreq.lua]])) end
 
