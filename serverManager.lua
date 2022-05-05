@@ -60,7 +60,7 @@ function onDraw()
         screen.drawText(1,1, "Enter Server Code: ")
         screen.drawText(1,15, "Or start hosting: ")
         hostButton:lbstyledbutton_draw()
-        drawKeypad(50,50)
+        drawKeypad(50,50,true)
     end
     if hosting then
         screen.setColor(255,255,255)
@@ -69,29 +69,30 @@ function onDraw()
     end
 end
 
-function drawKeypad(x,y)
+function drawKeypad(x,y,outline)
     local table = {"7","8","9","4","5","6","1","2","3","d","0","e"}
-    butt(x,y,table[1],{255,255,255})
-    butt(x+6,y,table[2],{255,255,255})
-    butt(x+12,y,table[3],{255,255,255})
-    butt(x,y+6,table[4],{255,255,255})
-    butt(x+6,y+6,table[5],{255,255,255})
-    butt(x+12,y+6,table[6],{255,255,255})
-    butt(x,y+12,table[7],{255,255,255})
-    butt(x+6,y+12,table[8],{255,255,255})
-    butt(x+12,y+12,table[9],{255,255,255})
-    butt(x,y+18,table[10],{255,0,0})
-    butt(x+6,y+18,table[11],{255,255,255})
-    butt(x+12,y+18,table[12],{0,255,0})
+    butt(x,y,table[1],{255,255,255},outline)
+    butt(x+7,y,table[2],{255,255,255}, outline)
+    butt(x+14,y,table[3],{255,255,255}, outline)
+    butt(x,y+8,table[4],{255,255,255}, outline)
+    butt(x+7,y+8,table[5],{255,255,255}, outline)
+    butt(x+14,y+8,table[6],{255,255,255}, outline)
+    butt(x,y+16,table[7],{255,255,255}, outline)
+    butt(x+7,y+16,table[8],{255,255,255}, outline)
+    butt(x+14,y+16,table[9],{255,255,255}, outline)
+    butt(x,y+24,table[10],{255,0,0}, outline)
+    butt(x+7,y+24,table[11],{255,255,255}, outline)
+    butt(x+14,y+24,table[12],{0,255,0}, outline)
 end
 
-function butt(x,y,l,color) --bottom left, letter, color (rgb table)
+function butt(x,y,l,color,outline) --bottom left, letter, color (rgb table)
     local sc = screen
     sc.setColor(0,0,0)
-    local fuck = isPressed and isPointInRectangle(inputX, inputY, x, y, 6, 7)
-    if fuck then sc.setColor(20,20,20) sc.drawRectF(x,y, 6, 7) else sc.drawRectF(x,y, 6, 7) end
+    local fuck = isPressed and isPointInRectangle(inputX, inputY, x+1, y+1, 6, 7)
+    if fuck then sc.setColor(20,20,20) sc.drawRectF(x+1,y+1, 6, 7) else sc.drawRectF(x,y, 7, 8) end
+    if outline then sc.setColor(255,255,255) sc.drawRect(x,y, 7, 8) end
     sc.setColor(color[1],color[2],color[3])
-    sc.drawText(x + 1, y + 1, l)
+    sc.drawText(x + 2, y + 2, l)
     return fuck
 end
 
