@@ -60,7 +60,7 @@ function onDraw()
         screen.drawText(1,1, "Enter Server Code: ")
         screen.drawText(1,15, "Or start hosting: ")
         hostButton:lbstyledbutton_draw()
-
+        drawKeypad(50,50)
     end
     if hosting then
         screen.setColor(255,255,255)
@@ -70,24 +70,28 @@ function onDraw()
 end
 
 function drawKeypad(x,y)
-    local table = {7,8,9,4,5,6,1,2,3,"d",0,"e"}
-    for i=1, i < 12 do
-        butt(x,y,table[i])
-    end
+    local table = {"7","8","9","4","5","6","1","2","3","d","0","e"}
+    butt(x,y,table[1],{255,255,255})
+    butt(x+6,y,table[2],{255,255,255})
+    butt(x+12,y,table[3],{255,255,255})
+    butt(x,y+6,table[4],{255,255,255})
+    butt(x+6,y+6,table[5],{255,255,255})
+    butt(x+12,y+6,table[6],{255,255,255})
+    butt(x,y+12,table[7],{255,255,255})
+    butt(x+6,y+12,table[8],{255,255,255})
+    butt(x+12,y+12,table[9],{255,255,255})
+    butt(x,y+18,table[10],{255,0,0})
+    butt(x+6,y+18,table[11],{255,255,255})
+    butt(x+12,y+18,table[12],{0,255,0})
 end
 
--- It's a function that draws a button.
-function butt(x,y,l,s) --bottom left, letter, table to add letter into.
+function butt(x,y,l,color) --bottom left, letter, color (rgb table)
     local sc = screen
     sc.setColor(0,0,0)
     local fuck = isPressed and isPointInRectangle(inputX, inputY, x, y, 6, 7)
     if fuck then sc.setColor(20,20,20) sc.drawRectF(x,y, 6, 7) else sc.drawRectF(x,y, 6, 7) end
-    
-    sc.setColor(255,255,255)
+    sc.setColor(color[1],color[2],color[3])
     sc.drawText(x + 1, y + 1, l)
-    if s and fuck and ppressed then
-        b[tablelength(b) + 1] = l
-    end
     return fuck
 end
 
