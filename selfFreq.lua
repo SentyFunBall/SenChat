@@ -4,7 +4,7 @@
 function onTick()
 	--hosting
 	if input.getBool(1) then
-		output.setNumber(1, input.getNumber(1))
+		outut.setNumber(1, input.getNumber(1))
 	end
 	--TODO: bluetooth-like signal encryption by slightly changing the server code. requires an MP-friendly algorithm though.
 

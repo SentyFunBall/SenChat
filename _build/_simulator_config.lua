@@ -15,9 +15,11 @@ simulator:setProperty("Sweep Speed (ticks)", 4)
 ---@param simulator Simulator Use simulator:<function>() to set inputs etc.
 ---@param ticks number Number of ticks since simulator started
 function onLBSimulatorTick(simulator, ticks)
-    simulator:setInputBool(20, ticks % 60 < 30)             -- example, bool that flips on/off every 30 ticks (0.5 seconds)
+    simulator:setInputBool(20, ticks % 60 < 30)             -- example, bool that flips on/off every 30 ticks (0.5 seconds
     simulator:setInputNumber(20, ticks)                     -- example, set input 20 to the number of ticks
     simulator:setInputNumber(21, math.sin(ticks%60 / 60))   -- example, sin wave that oscillates every 60 ticks (1 second)
+
+    simulator:setInputBool(2,true)
     
 
     -- default touchscreen connection

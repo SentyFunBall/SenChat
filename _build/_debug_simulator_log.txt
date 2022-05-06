@@ -1,13 +1,13 @@
-5/5/2022 5:26:58 AM Launching, time stamp.
-5/5/2022 5:26:58 AM Opening connection on port 14238
-5/5/2022 5:26:58 AM Now Accepting TCP clients
-5/5/2022 5:26:58 AM MainWindow Initialized and running
-5/5/2022 5:26:58 AM Client accepted - Client Connected: True, beginning Message Loop
+5/6/2022 4:40:21 AM Launching, time stamp.
+5/6/2022 4:40:21 AM Opening connection on port 14238
+5/6/2022 4:40:21 AM Now Accepting TCP clients
+5/6/2022 4:40:21 AM MainWindow Initialized and running
+5/6/2022 4:40:22 AM Client accepted - Client Connected: True, beginning Message Loop
 
-5/5/2022 5:27:18 AM SocketReadTask - Exception - Closing Pipe - Client Connected: True - System.NullReferenceException: Object reference not set to an instance of an object.
+5/6/2022 4:40:25 AM SocketReadTask - Exception - Closing Pipe - Client Connected: True - System.NullReferenceException: Object reference not set to an instance of an object.
    at STORMWORKS_Simulator.TickHandler.OnLineRead(Object sender, String messageFromVS) in C:\personal\STORMWORKS_VSCodeExtension\CsharpSimulator\STORMWORKS_Simulator\src\TickHandler.cs:line 68
    at STORMWORKS_Simulator.SocketConnection.<.ctor>b__13_0() in C:\personal\STORMWORKS_VSCodeExtension\CsharpSimulator\STORMWORKS_Simulator\src\SocketConnection.cs:line 88
 
 
-5/5/2022 5:27:18 AM Pipe_OnPipeClosed - Closing Application
+5/6/2022 4:40:25 AM Pipe_OnPipeClosed - Closing Application
 

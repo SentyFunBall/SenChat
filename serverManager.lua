@@ -17,12 +17,15 @@ stopHostingButton = LifeBoatAPI.LBTouchScreen:lbtouchscreen_newStyledButton(79, 
 hosting = false
 connected = false
 
+tick = 0
+
 function onTick()
     LifeBoatAPI.LBTouchScreen:lbtouchscreen_onTick() -- touchscreen handler provided by LifeBoatAPI. Handles checking for clicks/releases etc.
     inputX = input.getNumber(3)
     inputY = input.getNumber(4)
     ppressed = input.getBool(1) and not isPressed
     isPressed = input.getBool(1)
+    draw = input.getBool(2)
 
     serverCode = property.getNumber("Server code")
     if serverCode == 0 then
@@ -54,23 +57,28 @@ function onTick()
 end
 
 function onDraw()
-    --if not connected then should probably prompt to connect or host
-    if not connected and not hosting then
-        screen.setColor(255,255,255)
-        screen.drawText(1,1, "Enter Server Code: ")
-        screen.drawText(1,15, "Or start hosting: ")
-        hostButton:lbstyledbutton_draw()
-        drawKeypad(50,50,true)
-    end
-    if hosting then
-        screen.setColor(255,255,255)
-        screen.drawText(1,screen.getHeight() - 6, "Hosting:" .. serverCode)
-        stopHostingButton:lbstyledbutton_draw()
+    if draw then
+        if tick <= 1 then
+            tick = (tick+0.05)
+        end
+        --if not connected then should probably prompt to connect or host
+        if not connected and not hosting then
+            screen.setColor(255,255,255)
+            screen.drawText(1,1, "Enter Server Code: ")
+            screen.drawText(1,15, "Or start hosting: ")
+            hostButton:lbstyledbutton_draw()
+            drawKeypad(138,lerp(96,63,tick),true)
+        end
+        if hosting then
+            screen.setColor(255,255,255)
+            screen.drawText(1,screen.getHeight() - 6, "Hosting:" .. serverCode)
+            stopHostingButton:lbstyledbutton_draw()
+        end
     end
 end
 
 function drawKeypad(x,y,outline)
-    local table = {"7","8","9","4","5","6","1","2","3","d","0","e"}
+    local table = {"1","2","3","4","5","6","7","8","9","d","0","e"}
     butt(x,y,table[1],{255,255,255},outline)
     butt(x+7,y,table[2],{255,255,255}, outline)
     butt(x+14,y,table[3],{255,255,255}, outline)
@@ -99,4 +107,8 @@ end
 -- It's a function that checks if a point is within a rectangle.
 function isPointInRectangle(x, y, rectX, rectY, rectW, rectH)
     return x >= rectX and y >= rectY and x < rectX+rectW and y < rectY+rectH
+end
+
+function lerp(a,b,p) --start(0%),end(100%), percentage
+    return (1-p)*a+p*b
 end
