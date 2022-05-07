@@ -57,7 +57,7 @@ function onTick()
         output.setNumber(1, tonumber(serverCode))
     else
         output.setBool(1, false)
-     end
+    end
 end
 
 function onDraw()
@@ -71,7 +71,7 @@ function onDraw()
             screen.drawText(1,1, "Enter Server Code: "..userServerCode)
             screen.drawText(1,15, "Or start hosting: ")
             hostButton:lbstyledbutton_draw()
-            drawKeypad(138,lerp(96,63,tick),true)
+            drawKeypad(lerp(161,138,tick),33,true)
         end
         if hosting then
             screen.setColor(255,255,255)
@@ -94,18 +94,19 @@ function drawKeypad(x,y,outline)
     if butt(x+14,y+16,table[9],{255,255,255}, outline) then userServerCode = userServerCode .. "9" end
     if butt(x,y+24,table[10],{255,0,0}, outline) then userServerCode = string.sub(userServerCode, 0, string.len(userServerCode)-1) end
     if butt(x+7,y+24,table[11],{255,255,255}, outline) then userServerCode = userServerCode .. "0" end
-    if butt(x+14,y+24,table[12],{0,255,0}, outline) then userServerCode = userServerCode .. "e" end
+    if butt(x+14,y+24,table[12],{0,255,0}, outline) then connectServer(userServerCode) end
 end
 
 function butt(x,y,l,color,outline) --bottom left, letter, color (rgb table)
     local sc = screen
     sc.setColor(0,0,0)
-    local fuck = ppressed and isPointInRectangle(inputX, inputY, x+1, y+1, 6, 7)
-    if fuck then sc.setColor(20,20,20) sc.drawRectF(x+1,y+1, 6, 7) else sc.drawRectF(x,y, 7, 8) end
+    local buttonPressed = ppressed and isPointInRectangle(inputX, inputY, x+1, y+1, 6, 7)
+    local drawFill = isPressed and isPointInRectangle(inputX, inputY, x+1, y+1, 6, 7)
+    if drawFill then sc.setColor(20,20,20) sc.drawRectF(x+1,y+1, 6, 7) else sc.drawRectF(x,y, 7, 8) end
     if outline then sc.setColor(255,255,255) sc.drawRect(x,y, 7, 8) end
     sc.setColor(color[1],color[2],color[3])
     sc.drawText(x + 2, y + 2, l)
-    return fuck
+    return buttonPressed
 end
 
 -- It's a function that checks if a point is within a rectangle.
@@ -115,4 +116,8 @@ end
 
 function lerp(a,b,p) --start(0%),end(100%), percentage
     return (1-p)*a+p*b
+end
+
+function connectServer(code)
+    
 end
