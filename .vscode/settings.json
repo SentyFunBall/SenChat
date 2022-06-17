@@ -41,13 +41,21 @@
         "c:/Users/senty_dml71xc/.vscode/extensions/nameouschangey.lifeboatapi-0.0.12//assets/LifeBoatAPI/Tools/?.lua"
     ],
     "Lua.workspace.library": [
-        "c:/Users/senty_dml71xc/.vscode/extensions/nameouschangey.lifeboatapi-0.0.12//assets/LifeBoatAPI/Microcontroller/",
-        "c:/Users/senty_dml71xc/.vscode/extensions/nameouschangey.lifeboatapi-0.0.12//assets/LifeBoatAPI/Tools/"
+        "d:/ggg/Stormworks/SenChat/",
+        "c:/Users/senty_dml71xc/.vscode/extensions/nameouschangey.lifeboatapi-0.0.23/assets/lua/Common/",
+        "c:/Users/senty_dml71xc/.vscode/extensions/nameouschangey.lifeboatapi-0.0.23/assets/lua/Microcontroller/",
+        "d:/ggg/Stormworks/SenChat/_build/libs/"
     ],
     "lua.debug.settings.luaVersion": "5.3",
     "lua.debug.settings.luaArch": "x86",
     "Lua.IntelliSense.traceBeSetted": true,
     "Lua.IntelliSense.traceFieldInject": true,
     "Lua.IntelliSense.traceLocalSet": true,
-    "Lua.IntelliSense.traceReturn": true
+    "Lua.IntelliSense.traceReturn": true,
+    "lifeboatapi.stormworks.libs.gitLibraries": [
+        {
+            "name": "LifeBoatAPI",
+            "gitUrl": "https://github.com/nameouschangey/Stormworks_LifeBoatAPI_MC.git"
+        }
+    ]
 }
